@@ -1,8 +1,11 @@
-import prod1 from "../assets/prod1.webp";
-import prod2 from "../assets/prod2.jpg";
-import prod4 from "../assets/prod4.png";
-
 function About() {
+  // Use images that actually exist in your public folder
+  const carouselImages = [
+    "/assets/prod1.webp",
+    "/assets/prod2.jpg", 
+    "/assets/prod4.png"
+  ];
+
   return (
     <div className="container py-5">
       {/* ABOUT SECTION */}
@@ -68,7 +71,7 @@ function About() {
 
           {/* Carousel images */}
           <div className="carousel-inner rounded shadow-sm">
-            {[prod2, prod1, prod4].map((img, index) => (
+            {carouselImages.map((img, index) => (
               <div
                 key={index}
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
@@ -80,6 +83,9 @@ function About() {
                   style={{
                     height: "250px",
                     objectFit: "cover",
+                  }}
+                  onError={(e) => {
+                    e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23f8f9fa'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='16' fill='%236c757d'%3EImage: " + img + "%3C/text%3E%3C/svg%3E";
                   }}
                 />
               </div>

@@ -1,9 +1,24 @@
-import skincareImg from "../assets/skincare.avif";
-import nutritionImg from "../assets/nutrition.png";
-import hygieneImg from "../assets/hygiene.jpg";
-import babycareImg from "../assets/baby care.jpg";
-
 function Home() {
+  // Use public folder paths instead of imports
+  const categories = [
+    { 
+      img: "/assets/skincare.avif", 
+      title: "Skincare" 
+    },
+    { 
+      img: "/assets/nutrition.png", 
+      title: "Nutrition" 
+    },
+    { 
+      img: "/assets/hygiene.jpg", 
+      title: "Hygiene" 
+    },
+    { 
+      img: "/assets/baby care.jpg", 
+      title: "Baby Care" 
+    },
+  ];
+
   return (
     <div className="container py-5">
       {/* HERO SECTION */}
@@ -62,19 +77,13 @@ function Home() {
       </section>
 
       {/* CATEGORIES SECTION */}
-      {/* CATEGORIES SECTION */}
       <section>
         <h3 className="text-center mb-4 fw-bold text-secondary">
           🛒 Popular Categories
         </h3>
 
         <div className="row g-4">
-          {[
-            { img: skincareImg, title: "Skincare" },
-            { img: nutritionImg, title: "Nutrition" },
-            { img: hygieneImg, title: "Hygiene" },
-            { img: babycareImg, title: "Baby Care" },
-          ].map((category, index) => (
+          {categories.map((category, index) => (
             <div className="col-6 col-md-3" key={index}>
               <div className="card h-100 shadow-sm">
                 <div
@@ -91,6 +100,9 @@ function Home() {
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                    }}
+                    onError={(e) => {
+                      e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f8f9fa'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='14' fill='%236c757d'%3E" + category.title + "%3C/text%3E%3C/svg%3E";
                     }}
                   />
                 </div>

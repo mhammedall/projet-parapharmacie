@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "SEBIACLEAR Hydra",
+    "description": "Soin réparateur hydratant apaisant, anti-marques confort longue durée.",
+    "price": 115,
+    "category": "VISAGE",
+    "image": "/assets/hydratingSVR.webp"
+  },
+  {
+    "id": 2,
+    "name": "SVR Ampoule C Anti-Ox Concentré Eclat 30ml",
+    "description": "SVR Ampoule C Anti-Ox Concentré Eclat 30 ml est un sérum ultra-concentré en vitamine C optimisée (20%).",
+    "price": 32.50,
+    "category": "VISAGE",
+    "image": "/assets/VitaminC.avif"
+  },
+  {
+    "id": 3,
+    "name": "AKTIV Omega 3 Marin 60 Capsules",
+    "description": "AKTIV OMEGA 3 MARIN 60 CAPSULES aide à maintenir des niveaux sains de cholestérol et contribuent à la santé du système cardiovasculaire.",
+    "price": 50.80,
+    "category": "COMPLÉMENTS ALIMENTAIRES",
+    "image": "/assets/AKTIV.webp"
+  },
+  {
+    "id": 4,
+    "name": "Neutraderm Baby Shampooing Demelant Douceur 200ml",
+    "description": "Neutraderm Baby shampooing démêlant douceur est spécialement adapté pour les cheveux et la peau de bébé, dès la naissance.",
+    "price": 28.50,
+    "category": "BÉBÉ ET MAMAN",
+    "image": "/assets/prod4.webp"
+  },
+  {
+    "id": 5,
+    "name": "CLINO+ Gel Mains Hydroalcoolique 70% 500ml",
+    "description": "Clino le gel hydroalcoolique est une preparation antiseptique hypoallergenique permettent de désinfecter efficacement les mains seches.",
+    "price": 12.20,
+    "category": "HYGIÈNE",
+    "image": "/assets/prod5.webp"
+  },
+  {
+    "id": 6,
+    "name": "Nutrend EAA Mega Strong Powder 300g",
+    "description": "Nutrend EAA Mega Strong Powder mélange instantané de 9 acides aminés essentiels enrichi en vitamines, zinc et thé vert.",
+    "price": 139,
+    "category": "COMPLÉMENTS ALIMENTAIRES",
+    "image": "/assets/prod6.avif"
+  }
+]
