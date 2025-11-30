@@ -2,8 +2,12 @@ import skincareImg from "../assets/skincare.avif";
 import nutritionImg from "../assets/nutrition.png";
 import hygieneImg from "../assets/hygiene.jpg";
 import babycareImg from "../assets/baby care.jpg";
-
+import { useCart } from '../components/CartContext';
 function Home() {
+    const { cart, addToCart } = useCart(); // access cart context
+  const handleAddTest = () => {
+    addToCart({ id: 1, name: "Test Product", price: 10 });
+  };
   return (
     <div className="container py-5">
       {/* HERO SECTION */}
