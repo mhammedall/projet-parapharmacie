@@ -1,39 +1,37 @@
 import { useState } from "react";
 
-export default function Login() {
+export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
 
-    if (!email || !password) {
+    if (!email || !password || !confirm) {
       setError("Veuillez remplir tous les champs.");
       return;
     }
 
-    const savedUser = JSON.parse(localStorage.getItem("user"));
-
-    if (!savedUser) {
-      setError("Aucun compte trouvé. Veuillez vous inscrire.");
+    if (password !== confirm) {
+      setError("Les mots de passe ne correspondent pas.");
       return;
     }
 
-    if (email === savedUser.email && password === savedUser.password) {
-      localStorage.setItem("loggedIn", true);
-      setError("");
-      alert("Connexion réussie !");
-    } else {
-      setError("Email ou mot de passe incorrect.");
-    }
+    const user = { email, password };
+
+    localStorage.setItem("user", JSON.stringify(user));
+
+    alert("Compte créé avec succès !");
+    setError("");
   };
 
   return (
     <div className="form-container">
-      <h2>Login</h2>
+      <h2>Register</h2>
 
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleRegister}>
         <input
           type="email"
           placeholder="Adresse Email"
@@ -48,9 +46,16 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
+        <input
+          type="password"
+          placeholder="Confirmer mot de passe"
+          value={confirm}
+          onChange={(e) => setConfirm(e.target.value)}
+        />
+
         {error && <p className="error">{error}</p>}
 
-        <button type="submit">Se connecter</button>
+        <button type="submit">Créer un compte</button>
       </form>
     </div>
   );

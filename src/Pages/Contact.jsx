@@ -1,12 +1,52 @@
-function Contact() {
+import { useState } from "react";
+
+export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!name || !email || !message) {
+      setError("Tous les champs sont obligatoires.");
+      return;
+    }
+
+    setError("");
+    alert("Message envoyé avec succès !");
+  };
+
   return (
-    <div className="container-fluid">
-      <section className="mt-5 px-3">
-        <h2>Contact-us</h2>
-        <p>Form to add here later...</p>
-      </section>
+    <div className="form-container">
+      <h2>Contact</h2>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Votre nom"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <input
+          type="email"
+          placeholder="Votre Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        <textarea
+          placeholder="Votre message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        ></textarea>
+
+        {error && <p className="error">{error}</p>}
+
+        <button type="submit">Envoyer</button>
+      </form>
     </div>
   );
 }
-
-export default Contact;
