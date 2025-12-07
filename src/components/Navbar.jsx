@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 function Navbar() {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  // Vérifier la connexion au chargement
+  // Check login status on load
   useEffect(() => {
     const isLogged = localStorage.getItem("loggedIn") === "true";
     setLoggedIn(isLogged);
   }, []);
 
-  // Déconnexion
+  // Logout
   const handleLogout = () => {
     localStorage.removeItem("loggedIn");
     setLoggedIn(false);
@@ -36,7 +36,6 @@ function Navbar() {
 
       <div className="collapse navbar-collapse" id="menu">
         <ul className="navbar-nav ms-auto">
-
           {/* Home */}
           <li className="nav-item">
             <NavLink
@@ -85,7 +84,7 @@ function Navbar() {
             </NavLink>
           </li>
 
-          {/* 🔐 Login / Mon Compte */}
+          {/* 🔐 Login / My Account */}
           {!loggedIn ? (
             <li className="nav-item">
               <NavLink
@@ -101,12 +100,12 @@ function Navbar() {
             <>
               <li className="nav-item">
                 <NavLink
-                  to="/compte"
+                  to="/account"
                   className={({ isActive }) =>
                     "nav-link " + (isActive ? "text-white fw-bold" : "")
                   }
                 >
-                  Mon Compte
+                  My Account
                 </NavLink>
               </li>
 
@@ -115,7 +114,7 @@ function Navbar() {
                   onClick={handleLogout}
                   className="btn btn-danger ms-2"
                 >
-                  Déconnexion
+                  Logout
                 </button>
               </li>
             </>
