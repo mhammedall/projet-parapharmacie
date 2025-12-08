@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ProductCard from "../components/productCard";
+import ProductCard from "../components/productCard"; 
 import productsData from "../data/products.json";
 
 function Catalogue() {
@@ -11,52 +11,52 @@ function Catalogue() {
   const [priceRange, setPriceRange] = useState([0, 200]);
   const [sortOrder, setSortOrder] = useState("");
 
-  // Main categories like in your example
+  // Main categories in English
   const mainCategories = [
-    "All", "VISAGE", "CORPS", "CHEVEUX", "BÉBÉ ET MAMAN", 
-    "COMPLÉMENTS ALIMENTAIRES", "HYGIÈNE", "HOMME", 
-    "SOLAIRE", "MAQUILLAGE", "PROMO"
+    "All", "FACE", "BODY", "HAIR", "BABY & MOM", 
+    "FOOD SUPPLEMENTS", "HYGIENE", "MEN", 
+    "SUN CARE", "MAKEUP", "PROMO"
   ];
 
-  // Subcategories based on your examples
+  // Subcategories in English
   const subcategories = {
-    "VISAGE": [
-      "Soins hydratants et nourrissants",
-      "Soins anti-âge et anti-rides", 
-      "Maquillage",
-      "Démaquillants, nettoyants visage",
-      "Soins peau grasse, mixte et acné",
-      "Masques visage et gommage",
-      "Soins anti-roughurs et peau sensible"
+    "FACE": [
+      "Hydrating & Nourishing Care",
+      "Anti-Age & Anti-Wrinkle", 
+      "Makeup",
+      "Makeup Removers & Face Cleansers",
+      "Oily, Mixed & Acne Skin Care",
+      "Face Masks & Scrubs",
+      "Anti-Redness & Sensitive Skin Care"
     ],
-    "CORPS": [
-      "Hydratation et nutrition corps",
-      "Soins des pieds",
-      "Épilation",
-      "Soins minceur",
-      "Soins Corps",
-      "Articulations"
+    "BODY": [
+      "Body Hydration & Nutrition",
+      "Foot Care",
+      "Hair Removal",
+      "Slimming Care",
+      "Body Care",
+      "Joints Care"
     ],
-    "BÉBÉ ET MAMAN": [
-      "Puériculture",
-      "Toilette et soin bébé",
-      "Change de bébé",
-      "Trousseaux et cadeaux bébé",
-      "Complément alimentaire bébé et enfants",
-      "Poux et lentes"
+    "BABY & MOM": [
+      "Baby Gear",
+      "Baby Bath & Care",
+      "Baby Changing",
+      "Baby Gifts & Sets",
+      "Baby & Children Supplements",
+      "Lice & Nits"
     ],
-    "COMPLÉMENTS ALIMENTAIRES": [
-      "Vitamines",
-      "Omega et acides gras",
-      "Protéines",
-      "Minéraux",
-      "Antioxydants"
+    "FOOD SUPPLEMENTS": [
+      "Vitamins",
+      "Omega & Fatty Acids",
+      "Proteins",
+      "Minerals",
+      "Antioxidants"
     ],
-    "HYGIÈNE": [
-      "Gels hydroalcooliques",
-      "Savons et désinfectants",
-      "Hygiène intime",
-      "Soins des mains"
+    "HYGIENE": [
+      "Hand Sanitizers",
+      "Soaps & Disinfectants",
+      "Intimate Hygiene",
+      "Hand Care"
     ],
     "All": ["All"]
   };
@@ -90,7 +90,7 @@ function Catalogue() {
 
   return (
     <div className="container-fluid py-4">
-      {/* HORIZONTAL CATEGORY NAVIGATION - Like your example */}
+      {/* HORIZONTAL CATEGORY NAVIGATION */}
       <section className="mb-4 border-bottom">
         <div className="d-flex flex-wrap justify-content-center py-2">
           {mainCategories.map((category, index) => (
@@ -108,11 +108,11 @@ function Catalogue() {
       </section>
 
       <div className="row">
-        {/* SIDEBAR WITH SUBCATEGORIES - Like your example */}
+        {/* SIDEBAR WITH SUBCATEGORIES */}
         <div className="col-md-3 mb-4">
           <div className="card shadow-sm border-0">
             <div className="card-header bg-primary text-white fw-bold">
-              {selectedCategory === "All" ? "CATÉGORIES" : selectedCategory}
+              {selectedCategory === "All" ? "CATEGORIES" : selectedCategory}
             </div>
             <div className="card-body p-0">
               {/* Subcategories List */}
@@ -133,17 +133,17 @@ function Catalogue() {
             </div>
           </div>
 
-          {/* PRICE FILTER CARD */}
+          {/* FILTERS CARD */}
           <div className="card shadow-sm border-0 mt-4">
-            <div className="card-header bg-light fw-bold">FILTRES</div>
+            <div className="card-header bg-light fw-bold">FILTERS</div>
             <div className="card-body">
               {/* Search */}
               <div className="mb-3">
-                <label className="form-label fw-semibold small">Recherche</label>
+                <label className="form-label fw-semibold small">Search</label>
                 <input
                   type="text"
                   className="form-control form-control-sm"
-                  placeholder="Rechercher un produit..."
+                  placeholder="Search for a product..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -151,7 +151,7 @@ function Catalogue() {
 
               {/* Price Range */}
               <div className="mb-3">
-                <label className="form-label fw-semibold small">Prix (TND)</label>
+                <label className="form-label fw-semibold small">Price (TND)</label>
                 <div className="d-flex gap-2">
                   <input
                     type="number"
@@ -172,34 +172,34 @@ function Catalogue() {
 
               {/* Sort Options */}
               <div className="mb-3">
-                <label className="form-label fw-semibold small">Trier par</label>
+                <label className="form-label fw-semibold small">Sort by</label>
                 <select
                   className="form-select form-select-sm"
                   value={sortOrder}
                   onChange={(e) => setSortOrder(e.target.value)}
                 >
-                  <option value="">Par défaut</option>
-                  <option value="price-asc">Prix: Croissant</option>
-                  <option value="price-desc">Prix: Décroissant</option>
+                  <option value="">Default</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
                 </select>
               </div>
 
               {/* Results Count */}
               <div className="border-top pt-2">
                 <small className="text-muted">
-                  {filteredProducts.length} produit(s) trouvé(s)
+                  {filteredProducts.length} product(s) found
                 </small>
               </div>
             </div>
           </div>
         </div>
 
-        {/* PRODUCTS GRID - Professional e-commerce style */}
+        {/* PRODUCTS GRID */}
         <div className="col-md-9">
           {/* Category Title */}
           <div className="d-flex justify-content-between align-items-center mb-4">
             <h2 className="text-primary fw-bold mb-0">
-              {selectedCategory === "All" ? "TOUS LES PRODUITS" : selectedCategory}
+              {selectedCategory === "All" ? "ALL PRODUCTS" : selectedCategory}
             </h2>
             {selectedSubcategory !== "All" && (
               <span className="badge bg-secondary fs-6">{selectedSubcategory}</span>
@@ -209,9 +209,9 @@ function Catalogue() {
           {filteredProducts.length === 0 ? (
             <div className="text-center py-5">
               <div className="card shadow-sm bg-white p-5 border-0">
-                <h4 className="text-secondary mb-3">Aucun produit trouvé</h4>
+                <h4 className="text-secondary mb-3">No products found</h4>
                 <p className="text-muted">
-                  Ajustez vos critères de recherche ou filtres pour trouver ce que vous cherchez.
+                  Adjust your search criteria or filters to find what you're looking for.
                 </p>
               </div>
             </div>

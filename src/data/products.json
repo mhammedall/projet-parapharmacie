@@ -2,49 +2,49 @@
   {
     "id": 1,
     "name": "SEBIACLEAR Hydra",
-    "description": "Soin réparateur hydratant apaisant, anti-marques confort longue durée.",
+    "description": "Hydrating soothing repair care, anti-marks long-lasting comfort.",
     "price": 115,
-    "category": "VISAGE",
+    "category": "FACE",
     "image": "/assets/hydratingSVR.webp"
   },
   {
     "id": 2,
-    "name": "SVR Ampoule C Anti-Ox Concentré Eclat 30ml",
-    "description": "SVR Ampoule C Anti-Ox Concentré Eclat 30 ml est un sérum ultra-concentré en vitamine C optimisée (20%).",
+    "name": "SVR Ampoule C Anti-Ox Concentrated Glow 30ml",
+    "description": "SVR Ampoule C Anti-Ox Concentrated Glow 30 ml is an ultra-concentrated serum with optimized vitamin C (20%).",
     "price": 32.50,
-    "category": "VISAGE",
+    "category": "FACE",
     "image": "/assets/VitaminC.avif"
   },
   {
     "id": 3,
-    "name": "AKTIV Omega 3 Marin 60 Capsules",
-    "description": "AKTIV OMEGA 3 MARIN 60 CAPSULES aide à maintenir des niveaux sains de cholestérol et contribuent à la santé du système cardiovasculaire.",
+    "name": "AKTIV Omega 3 Marine 60 Capsules",
+    "description": "AKTIV OMEGA 3 MARINE 60 CAPSULES helps maintain healthy cholesterol levels and contributes to cardiovascular health.",
     "price": 50.80,
-    "category": "COMPLÉMENTS ALIMENTAIRES",
+    "category": "FOOD SUPPLEMENTS",
     "image": "/assets/AKTIV.webp"
   },
   {
     "id": 4,
-    "name": "Neutraderm Baby Shampooing Demelant Douceur 200ml",
-    "description": "Neutraderm Baby shampooing démêlant douceur est spécialement adapté pour les cheveux et la peau de bébé, dès la naissance.",
+    "name": "Neutraderm Baby Detangling Shampoo Softness 200ml",
+    "description": "Neutraderm Baby detangling shampoo softness is specially adapted for baby's hair and skin, from birth.",
     "price": 28.50,
-    "category": "BÉBÉ ET MAMAN",
+    "category": "BABY & MOM",
     "image": "/assets/prod4.webp"
   },
   {
     "id": 5,
-    "name": "CLINO+ Gel Mains Hydroalcoolique 70% 500ml",
-    "description": "Clino le gel hydroalcoolique est une preparation antiseptique hypoallergenique permettent de désinfecter efficacement les mains seches.",
+    "name": "CLINO+ Hydroalcoholic Hand Gel 70% 500ml",
+    "description": "Clino hydroalcoholic gel is a hypoallergenic antiseptic preparation that effectively disinfects dry hands.",
     "price": 12.20,
-    "category": "HYGIÈNE",
+    "category": "HYGIENE",
     "image": "/assets/prod5.webp"
   },
   {
     "id": 6,
     "name": "Nutrend EAA Mega Strong Powder 300g",
-    "description": "Nutrend EAA Mega Strong Powder mélange instantané de 9 acides aminés essentiels enrichi en vitamines, zinc et thé vert.",
+    "description": "Nutrend EAA Mega Strong Powder instant blend of 9 essential amino acids enriched with vitamins, zinc and green tea.",
     "price": 139,
-    "category": "COMPLÉMENTS ALIMENTAIRES",
+    "category": "FOOD SUPPLEMENTS",
     "image": "/assets/prod6.avif"
   }
 ]

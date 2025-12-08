@@ -58,7 +58,7 @@ function ProductCard({ product }) {
           )}
 
           <button className="btn btn-primary w-100 py-2 fw-semibold" style={{ fontSize: "0.85rem" }}>
-            AJOUTER AU PANIER
+            ADD TO CART
           </button>
         </div>
       </div>
