@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ProductCard from "../components/productCard"; 
+import ProductCard from "../components/productCard";
 import productsData from "../data/products.json";
 
 function Catalogue() {
@@ -11,107 +11,76 @@ function Catalogue() {
   const [priceRange, setPriceRange] = useState([0, 200]);
   const [sortOrder, setSortOrder] = useState("");
 
-<<<<<<< HEAD
-  // Main categories in English
+  // ✅ MERGED MAIN CATEGORIES
   const mainCategories = [
-    "All", "FACE", "BODY", "HAIR", "BABY & MOM", 
-    "FOOD SUPPLEMENTS", "HYGIENE", "MEN", 
-    "SUN CARE", "MAKEUP", "PROMO"
+    "All",
+    "FACE",
+    "BODY",
+    "HAIR",
+    "BABY & MOM",
+    "FOOD SUPPLEMENTS",
+    "DIETARY SUPPLEMENTS",
+    "HYGIENE",
+    "MEN",
+    "SUN CARE",
+    "MAKEUP",
+    "PROMO",
   ];
 
-  // Subcategories in English
+  // ✅ MERGED SUBCATEGORIES
   const subcategories = {
-    "FACE": [
+    FACE: [
       "Hydrating & Nourishing Care",
-      "Anti-Age & Anti-Wrinkle", 
+      "Anti-Age & Anti-Wrinkle",
       "Makeup",
       "Makeup Removers & Face Cleansers",
       "Oily, Mixed & Acne Skin Care",
       "Face Masks & Scrubs",
-      "Anti-Redness & Sensitive Skin Care"
+      "Anti-Redness & Sensitive Skin Care",
     ],
-    "BODY": [
+
+    BODY: [
       "Body Hydration & Nutrition",
       "Foot Care",
       "Hair Removal",
       "Slimming Care",
       "Body Care",
-      "Joints Care"
+      "Joints Care",
     ],
+
     "BABY & MOM": [
       "Baby Gear",
       "Baby Bath & Care",
       "Baby Changing",
       "Baby Gifts & Sets",
       "Baby & Children Supplements",
-      "Lice & Nits"
+      "Lice & Nits",
     ],
+
     "FOOD SUPPLEMENTS": [
       "Vitamins",
       "Omega & Fatty Acids",
-=======
-  // Main categories (English version)
-  const mainCategories = [
-    "All", "FACE", "BODY", "HAIR", "BABY & MOM",
-    "DIETARY SUPPLEMENTS", "HYGIENE", "MEN",
-    "SUN CARE", "MAKEUP", "PROMO"
-  ];
-
-  // Subcategories (English version)
-  const subcategories = {
-    "FACE": [
-      "Moisturizing & nourishing care",
-      "Anti-aging & anti-wrinkle care",
-      "Makeup",
-      "Cleansers & face wash",
-      "Oily, mixed & acne-prone care",
-      "Face masks & scrubs",
-      "Redness & sensitive skin care"
-    ],
-
-    "BODY": [
-      "Body hydration & nutrition",
-      "Foot care",
-      "Hair removal",
-      "Slimming care",
-      "Body treatments",
-      "Joint support"
-    ],
-
-    "BABY & MOM": [
-      "Nursery & baby care",
-      "Baby bathing & hygiene",
-      "Baby diapering",
-      "Baby gift sets",
-      "Children dietary supplements",
-      "Lice treatment"
+      "Proteins",
+      "Minerals",
+      "Antioxidants",
     ],
 
     "DIETARY SUPPLEMENTS": [
       "Vitamins",
       "Omega & fatty acids",
->>>>>>> yasmine
       "Proteins",
       "Minerals",
-      "Antioxidants"
+      "Antioxidants",
     ],
-<<<<<<< HEAD
-    "HYGIENE": [
+
+    HYGIENE: [
       "Hand Sanitizers",
       "Soaps & Disinfectants",
       "Intimate Hygiene",
-      "Hand Care"
-=======
-
-    "HYGIENE": [
-      "Hand sanitizers",
-      "Soaps & disinfectants",
-      "Intimate hygiene",
-      "Hand care"
->>>>>>> yasmine
+      "Hand Care",
     ],
 
-    "All": ["All"]
+    All: ["All"],
   };
 
   // Load products
@@ -120,9 +89,9 @@ function Catalogue() {
     setFilteredProducts(productsData);
   }, []);
 
-  // Apply filters and search logic
+  // Apply filters & sorting
   useEffect(() => {
-    let results = products.filter(product => {
+    let results = products.filter((product) => {
       const matchesSearch =
         product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         product.description.toLowerCase().includes(searchTerm.toLowerCase());
@@ -136,7 +105,6 @@ function Catalogue() {
       return matchesSearch && matchesCategory && matchesPrice;
     });
 
-    // Sorting logic
     if (sortOrder === "price-asc") {
       results.sort((a, b) => a.price - b.price);
     } else if (sortOrder === "price-desc") {
@@ -148,11 +116,7 @@ function Catalogue() {
 
   return (
     <div className="container-fluid py-4">
-<<<<<<< HEAD
-=======
-
->>>>>>> yasmine
-      {/* HORIZONTAL CATEGORY NAVIGATION */}
+      {/* Horizontal category nav */}
       <section className="mb-4 border-bottom">
         <div className="d-flex flex-wrap justify-content-center py-2">
           {mainCategories.map((category, index) => (
@@ -163,7 +127,10 @@ function Catalogue() {
                   ? "text-primary border-bottom border-primary"
                   : "text-dark"
               }`}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => {
+                setSelectedCategory(category);
+                setSelectedSubcategory("All");
+              }}
             >
               {category}
             </button>
@@ -172,26 +139,21 @@ function Catalogue() {
       </section>
 
       <div className="row">
-<<<<<<< HEAD
-        {/* SIDEBAR WITH SUBCATEGORIES */}
-=======
-
         {/* LEFT SIDEBAR */}
->>>>>>> yasmine
         <div className="col-md-3 mb-4">
+          {/* Subcategories */}
           <div className="card shadow-sm border-0">
             <div className="card-header bg-primary text-white fw-bold">
               {selectedCategory === "All" ? "CATEGORIES" : selectedCategory}
             </div>
 
             <div className="card-body p-0">
-              {/* Subcategories List */}
               <ul className="list-group list-group-flush">
                 {(subcategories[selectedCategory] || subcategories["All"]).map(
                   (subcat, index) => (
                     <li
                       key={index}
-                      className={`list-group-item border-0 py-2 px-3 cursor-pointer ${
+                      className={`list-group-item border-0 py-2 px-3 ${
                         selectedSubcategory === subcat ? "bg-light fw-bold" : ""
                       }`}
                       onClick={() => setSelectedSubcategory(subcat)}
@@ -205,15 +167,10 @@ function Catalogue() {
             </div>
           </div>
 
-<<<<<<< HEAD
-          {/* FILTERS CARD */}
-=======
-          {/* FILTER CARD */}
->>>>>>> yasmine
+          {/* Filters */}
           <div className="card shadow-sm border-0 mt-4">
             <div className="card-header bg-light fw-bold">FILTERS</div>
             <div className="card-body">
-
               {/* Search */}
               <div className="mb-3">
                 <label className="form-label fw-semibold small">Search</label>
@@ -226,9 +183,11 @@ function Catalogue() {
                 />
               </div>
 
-              {/* Price Range */}
+              {/* Price */}
               <div className="mb-3">
-                <label className="form-label fw-semibold small">Price (TND)</label>
+                <label className="form-label fw-semibold small">
+                  Price (TND)
+                </label>
                 <div className="d-flex gap-2">
                   <input
                     type="number"
@@ -251,7 +210,7 @@ function Catalogue() {
                 </div>
               </div>
 
-              {/* Sorting */}
+              {/* Sort */}
               <div className="mb-3">
                 <label className="form-label fw-semibold small">Sort by</label>
                 <select
@@ -265,7 +224,6 @@ function Catalogue() {
                 </select>
               </div>
 
-              {/* Results Count */}
               <div className="border-top pt-2">
                 <small className="text-muted">
                   {filteredProducts.length} product(s) found
@@ -277,8 +235,6 @@ function Catalogue() {
 
         {/* PRODUCTS GRID */}
         <div className="col-md-9">
-
-          {/* Category Title */}
           <div className="d-flex justify-content-between align-items-center mb-4">
             <h2 className="text-primary fw-bold mb-0">
               {selectedCategory === "All" ? "ALL PRODUCTS" : selectedCategory}
@@ -291,23 +247,19 @@ function Catalogue() {
             )}
           </div>
 
-          {/* No results */}
           {filteredProducts.length === 0 ? (
             <div className="text-center py-5">
               <div className="card shadow-sm bg-white p-5 border-0">
                 <h4 className="text-secondary mb-3">No products found</h4>
                 <p className="text-muted">
-<<<<<<< HEAD
-                  Adjust your search criteria or filters to find what you're looking for.
-=======
-                  Adjust your search terms or filters to find what you’re looking for.
->>>>>>> yasmine
+                  Adjust your search criteria or filters to find what you're
+                  looking for.
                 </p>
               </div>
             </div>
           ) : (
             <div className="row g-3">
-              {filteredProducts.map(product => (
+              {filteredProducts.map((product) => (
                 <div key={product.id} className="col-sm-6 col-lg-4 col-xl-3">
                   <ProductCard product={product} />
                 </div>

@@ -5,11 +5,7 @@
     "description": "Hydrating soothing repair care, anti-marks long-lasting comfort.",
     "price": 115,
     "category": "FACE",
-<<<<<<< HEAD
-    "image": "/assets/hydratingSVR.webp"
-=======
     "images": ["/assets/hydratingSVR.webp"]
->>>>>>> yasmine
   },
   {
     "id": 2,
@@ -17,11 +13,7 @@
     "description": "SVR Ampoule C Anti-Ox Concentrated Glow 30 ml is an ultra-concentrated serum with optimized vitamin C (20%).",
     "price": 32.50,
     "category": "FACE",
-<<<<<<< HEAD
-    "image": "/assets/VitaminC.avif"
-=======
     "images": ["/assets/VitaminC.avif"]
->>>>>>> yasmine
   },
   {
     "id": 3,
@@ -29,11 +21,7 @@
     "description": "AKTIV OMEGA 3 MARINE 60 CAPSULES helps maintain healthy cholesterol levels and contributes to cardiovascular health.",
     "price": 50.80,
     "category": "FOOD SUPPLEMENTS",
-<<<<<<< HEAD
-    "image": "/assets/AKTIV.webp"
-=======
     "images": ["/assets/AKTIV.webp"]
->>>>>>> yasmine
   },
   {
     "id": 4,
@@ -41,11 +29,7 @@
     "description": "Neutraderm Baby detangling shampoo softness is specially adapted for baby's hair and skin, from birth.",
     "price": 28.50,
     "category": "BABY & MOM",
-<<<<<<< HEAD
-    "image": "/assets/prod4.webp"
-=======
     "images": ["/assets/prod4.webp"]
->>>>>>> yasmine
   },
   {
     "id": 5,
@@ -53,11 +37,7 @@
     "description": "Clino hydroalcoholic gel is a hypoallergenic antiseptic preparation that effectively disinfects dry hands.",
     "price": 12.20,
     "category": "HYGIENE",
-<<<<<<< HEAD
-    "image": "/assets/prod5.webp"
-=======
     "images": ["/assets/prod5.webp"]
->>>>>>> yasmine
   },
   {
     "id": 6,
@@ -65,12 +45,8 @@
     "description": "Nutrend EAA Mega Strong Powder instant blend of 9 essential amino acids enriched with vitamins, zinc and green tea.",
     "price": 139,
     "category": "FOOD SUPPLEMENTS",
-<<<<<<< HEAD
-    "image": "/assets/prod6.avif"
-=======
     "images": ["/assets/prod6.avif"]
-  }
-,
+  },
   {
     "id": 7,
     "name": "Roncey Clairskin Hand Cream SPF 30+ 100ml",
@@ -78,35 +54,31 @@
     "price": 33,
     "category": "BODY",
     "images": ["/assets/prod7.avif"]
-  }
-,
+  },
   {
     "id": 8,
     "name": "SVR Topialyse Cleansing Gel 200ml",
     "description": "Topialyse cleansing gel from SVR laboratories is a cleanser designed for sensitive and dry skin. It can be used on the body, hair, and face and is suitable for the whole family, including babies.",
-    "price": 22.750,
+    "price": 22.75,
     "category": "BODY",
     "images": ["/assets/prod8.avif"]
-  }
-,
+  },
   {
     "id": 9,
     "name": "SVR Topialyse Cream 400ml",
     "description": "SVR Topialyse 48H Nourishing Soothing Cream 400ml is a cream for sensitive, dry, and uncomfortable skin. It's a nourishing treatment suitable for the whole family, with a delicate fragrance and 48-hour effectiveness.",
-    "price":  57.240,
+    "price": 57.24,
     "category": "BODY",
     "images": ["/assets/prod9.avif"]
-  }
-,
+  },
   {
     "id": 10,
     "name": "ROGE CAVAILLES Special Dryness 250ml",
-    "description": " Intimate Gel for Women, enriched with prebiotics. Recommended by gynecologists for continuous comfort of the mucous membranes, combating dryness and tightness.",
-    "price":  26.2,
+    "description": "Intimate Gel for Women, enriched with prebiotics. Recommended by gynecologists for continuous comfort of the mucous membranes, combating dryness and tightness.",
+    "price": 26.2,
     "category": "BODY",
     "images": ["/assets/prod10.avif"]
-  }
-,
+  },
   {
     "id": 11,
     "name": "Chicco decorated flat and deep plate set for babies 12+ months, blue",
@@ -122,8 +94,7 @@
     "price": 15.41,
     "category": "BABY & MOM",
     "images": ["/assets/prod12.avif","/assets/prod12-2.avif","/assets/prod12-3.avif"]
-  }
-,
+  },
   {
     "id": 13,
     "name": "Gum Ortho Soft Toothbrush 124",
@@ -131,6 +102,5 @@
     "price": 11.65,
     "category": "HYGIENE",
     "images": ["/assets/prod13.webp","/assets/prod123-2.avif","/assets/prod123-3.avif"]
->>>>>>> yasmine
   }
 ]
