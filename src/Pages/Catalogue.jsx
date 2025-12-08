@@ -11,53 +11,58 @@ function Catalogue() {
   const [priceRange, setPriceRange] = useState([0, 200]);
   const [sortOrder, setSortOrder] = useState("");
 
-  // Main categories like in your example
+  // Main categories (English version)
   const mainCategories = [
-    "All", "VISAGE", "CORPS", "CHEVEUX", "BÉBÉ ET MAMAN", 
-    "COMPLÉMENTS ALIMENTAIRES", "HYGIÈNE", "HOMME", 
-    "SOLAIRE", "MAQUILLAGE", "PROMO"
+    "All", "FACE", "BODY", "HAIR", "BABY & MOM",
+    "DIETARY SUPPLEMENTS", "HYGIENE", "MEN",
+    "SUN CARE", "MAKEUP", "PROMO"
   ];
 
-  // Subcategories based on your examples
+  // Subcategories (English version)
   const subcategories = {
-    "VISAGE": [
-      "Soins hydratants et nourrissants",
-      "Soins anti-âge et anti-rides", 
-      "Maquillage",
-      "Démaquillants, nettoyants visage",
-      "Soins peau grasse, mixte et acné",
-      "Masques visage et gommage",
-      "Soins anti-roughurs et peau sensible"
+    "FACE": [
+      "Moisturizing & nourishing care",
+      "Anti-aging & anti-wrinkle care",
+      "Makeup",
+      "Cleansers & face wash",
+      "Oily, mixed & acne-prone care",
+      "Face masks & scrubs",
+      "Redness & sensitive skin care"
     ],
-    "CORPS": [
-      "Hydratation et nutrition corps",
-      "Soins des pieds",
-      "Épilation",
-      "Soins minceur",
-      "Soins Corps",
-      "Articulations"
+
+    "BODY": [
+      "Body hydration & nutrition",
+      "Foot care",
+      "Hair removal",
+      "Slimming care",
+      "Body treatments",
+      "Joint support"
     ],
-    "BÉBÉ ET MAMAN": [
-      "Puériculture",
-      "Toilette et soin bébé",
-      "Change de bébé",
-      "Trousseaux et cadeaux bébé",
-      "Complément alimentaire bébé et enfants",
-      "Poux et lentes"
+
+    "BABY & MOM": [
+      "Nursery & baby care",
+      "Baby bathing & hygiene",
+      "Baby diapering",
+      "Baby gift sets",
+      "Children dietary supplements",
+      "Lice treatment"
     ],
-    "COMPLÉMENTS ALIMENTAIRES": [
-      "Vitamines",
-      "Omega et acides gras",
-      "Protéines",
-      "Minéraux",
-      "Antioxydants"
+
+    "DIETARY SUPPLEMENTS": [
+      "Vitamins",
+      "Omega & fatty acids",
+      "Proteins",
+      "Minerals",
+      "Antioxidants"
     ],
-    "HYGIÈNE": [
-      "Gels hydroalcooliques",
-      "Savons et désinfectants",
-      "Hygiène intime",
-      "Soins des mains"
+
+    "HYGIENE": [
+      "Hand sanitizers",
+      "Soaps & disinfectants",
+      "Intimate hygiene",
+      "Hand care"
     ],
+
     "All": ["All"]
   };
 
@@ -67,18 +72,23 @@ function Catalogue() {
     setFilteredProducts(productsData);
   }, []);
 
-  // Apply filters and search
+  // Apply filters and search logic
   useEffect(() => {
     let results = products.filter(product => {
-      const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           product.description.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
-      const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1];
-      
+      const matchesSearch =
+        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchTerm.toLowerCase());
+
+      const matchesCategory =
+        selectedCategory === "All" || product.category === selectedCategory;
+
+      const matchesPrice =
+        product.price >= priceRange[0] && product.price <= priceRange[1];
+
       return matchesSearch && matchesCategory && matchesPrice;
     });
 
-    // Apply sorting
+    // Sorting logic
     if (sortOrder === "price-asc") {
       results.sort((a, b) => a.price - b.price);
     } else if (sortOrder === "price-desc") {
@@ -90,14 +100,17 @@ function Catalogue() {
 
   return (
     <div className="container-fluid py-4">
-      {/* HORIZONTAL CATEGORY NAVIGATION - Like your example */}
+
+      {/* HORIZONTAL CATEGORY NAVIGATION */}
       <section className="mb-4 border-bottom">
         <div className="d-flex flex-wrap justify-content-center py-2">
           {mainCategories.map((category, index) => (
             <button
               key={index}
               className={`btn btn-link text-decoration-none fw-semibold mx-2 px-3 py-2 ${
-                selectedCategory === category ? "text-primary border-bottom border-primary" : "text-dark"
+                selectedCategory === category
+                  ? "text-primary border-bottom border-primary"
+                  : "text-dark"
               }`}
               onClick={() => setSelectedCategory(category)}
             >
@@ -108,42 +121,47 @@ function Catalogue() {
       </section>
 
       <div className="row">
-        {/* SIDEBAR WITH SUBCATEGORIES - Like your example */}
+
+        {/* LEFT SIDEBAR */}
         <div className="col-md-3 mb-4">
           <div className="card shadow-sm border-0">
             <div className="card-header bg-primary text-white fw-bold">
-              {selectedCategory === "All" ? "CATÉGORIES" : selectedCategory}
+              {selectedCategory === "All" ? "CATEGORIES" : selectedCategory}
             </div>
+
             <div className="card-body p-0">
               {/* Subcategories List */}
               <ul className="list-group list-group-flush">
-                {(subcategories[selectedCategory] || subcategories["All"]).map((subcat, index) => (
-                  <li 
-                    key={index}
-                    className={`list-group-item border-0 py-2 px-3 cursor-pointer ${
-                      selectedSubcategory === subcat ? "bg-light fw-bold" : ""
-                    }`}
-                    onClick={() => setSelectedSubcategory(subcat)}
-                    style={{cursor: "pointer"}}
-                  >
-                    {subcat}
-                  </li>
-                ))}
+                {(subcategories[selectedCategory] || subcategories["All"]).map(
+                  (subcat, index) => (
+                    <li
+                      key={index}
+                      className={`list-group-item border-0 py-2 px-3 cursor-pointer ${
+                        selectedSubcategory === subcat ? "bg-light fw-bold" : ""
+                      }`}
+                      onClick={() => setSelectedSubcategory(subcat)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {subcat}
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           </div>
 
-          {/* PRICE FILTER CARD */}
+          {/* FILTER CARD */}
           <div className="card shadow-sm border-0 mt-4">
-            <div className="card-header bg-light fw-bold">FILTRES</div>
+            <div className="card-header bg-light fw-bold">FILTERS</div>
             <div className="card-body">
+
               {/* Search */}
               <div className="mb-3">
-                <label className="form-label fw-semibold small">Recherche</label>
+                <label className="form-label fw-semibold small">Search</label>
                 <input
                   type="text"
                   className="form-control form-control-sm"
-                  placeholder="Rechercher un produit..."
+                  placeholder="Search for a product..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -151,67 +169,76 @@ function Catalogue() {
 
               {/* Price Range */}
               <div className="mb-3">
-                <label className="form-label fw-semibold small">Prix (TND)</label>
+                <label className="form-label fw-semibold small">Price (TND)</label>
                 <div className="d-flex gap-2">
                   <input
                     type="number"
                     className="form-control form-control-sm"
                     placeholder="Min"
                     value={priceRange[0]}
-                    onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
+                    onChange={(e) =>
+                      setPriceRange([Number(e.target.value), priceRange[1]])
+                    }
                   />
                   <input
                     type="number"
                     className="form-control form-control-sm"
                     placeholder="Max"
                     value={priceRange[1]}
-                    onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
+                    onChange={(e) =>
+                      setPriceRange([priceRange[0], Number(e.target.value)])
+                    }
                   />
                 </div>
               </div>
 
-              {/* Sort Options */}
+              {/* Sorting */}
               <div className="mb-3">
-                <label className="form-label fw-semibold small">Trier par</label>
+                <label className="form-label fw-semibold small">Sort by</label>
                 <select
                   className="form-select form-select-sm"
                   value={sortOrder}
                   onChange={(e) => setSortOrder(e.target.value)}
                 >
-                  <option value="">Par défaut</option>
-                  <option value="price-asc">Prix: Croissant</option>
-                  <option value="price-desc">Prix: Décroissant</option>
+                  <option value="">Default</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
                 </select>
               </div>
 
               {/* Results Count */}
               <div className="border-top pt-2">
                 <small className="text-muted">
-                  {filteredProducts.length} produit(s) trouvé(s)
+                  {filteredProducts.length} product(s) found
                 </small>
               </div>
             </div>
           </div>
         </div>
 
-        {/* PRODUCTS GRID - Professional e-commerce style */}
+        {/* PRODUCTS GRID */}
         <div className="col-md-9">
+
           {/* Category Title */}
           <div className="d-flex justify-content-between align-items-center mb-4">
             <h2 className="text-primary fw-bold mb-0">
-              {selectedCategory === "All" ? "TOUS LES PRODUITS" : selectedCategory}
+              {selectedCategory === "All" ? "ALL PRODUCTS" : selectedCategory}
             </h2>
+
             {selectedSubcategory !== "All" && (
-              <span className="badge bg-secondary fs-6">{selectedSubcategory}</span>
+              <span className="badge bg-secondary fs-6">
+                {selectedSubcategory}
+              </span>
             )}
           </div>
 
+          {/* No results */}
           {filteredProducts.length === 0 ? (
             <div className="text-center py-5">
               <div className="card shadow-sm bg-white p-5 border-0">
-                <h4 className="text-secondary mb-3">Aucun produit trouvé</h4>
+                <h4 className="text-secondary mb-3">No products found</h4>
                 <p className="text-muted">
-                  Ajustez vos critères de recherche ou filtres pour trouver ce que vous cherchez.
+                  Adjust your search terms or filters to find what you’re looking for.
                 </p>
               </div>
             </div>
