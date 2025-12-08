@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+// etats du composant
 export default function ForgotPassword() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
-
+//Cette fonction se déclenche lorsque l’utilisateur clique sur send reset instructions
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -25,6 +25,7 @@ export default function ForgotPassword() {
       setLoading(false);
       return;
     }
+//fausse attente de loading
 
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));

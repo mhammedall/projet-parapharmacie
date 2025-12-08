@@ -1,6 +1,8 @@
+//les imports 
+//use state gerer les valeur du champs email password
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+//from data contient ce que l'utilisateur tape 
 export default function Register() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -9,20 +11,21 @@ export default function Register() {
     confirmPassword: "",
   });
   const [error, setError] = useState("");
-
+//met a jour les inputs 
   const handleChange = (e) => {
     setFormData({
       ...formData,
+      //e target name houwa l email wala pass wala confirm pass
       [e.target.name]: e.target.value
     });
   };
-
+// when the user clicks on create account
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
 
     const { email, password, confirmPassword } = formData;
-
+// verifie si les champs are full or not
     if (!email || !password || !confirmPassword) {
       setError("Please fill in all fields.");
       return;
@@ -53,7 +56,7 @@ export default function Register() {
       }
     }
 
-    // Save user
+    // Save user to localstorage
     const user = {
       email,
       password,

@@ -1,6 +1,10 @@
+//les imports
+//pour gere l'etat
 import { useState } from "react";
+// usenavigate pour deriger a une autre page
+//link to create a link between pages sans faire reload
 import { Link, useNavigate } from "react-router-dom";
-
+// fonction login
 export default function Login() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -8,18 +12,19 @@ export default function Login() {
     password: "",
   });
   const [error, setError] = useState("");
-
+//mettre a jour the changes 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
+  //quand on click login
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
-
+//verifie si email and password are filled
     const { email, password } = formData;
 
     if (!email || !password) {
@@ -32,14 +37,14 @@ export default function Login() {
       return;
     }
 
-    // Check localStorage for user
+    // Check localStorage for user if the user has an account or needs to register first 
     const savedUser = JSON.parse(localStorage.getItem("user"));
     
     if (!savedUser) {
       setError("No account found. Please register first.");
       return;
     }
-
+// chack if email and password are valid 
     if (email === savedUser.email && password === savedUser.password) {
       localStorage.setItem("loggedIn", "true");
       navigate("/");
@@ -79,7 +84,7 @@ export default function Login() {
                 Access your parapharmacy account
               </p>
             </div>
-
+             {/*le formulaire*/}
             <div className="card-body px-4 px-md-5 py-4">
               <form onSubmit={handleSubmit}>
                 {/* Email */}
@@ -156,6 +161,7 @@ export default function Login() {
                 <div className="text-center pt-3">
                   <p className="mb-0 small">
                     Not a member yet?{" "}
+                   {/*lien vers register*/}
                     <Link to="/register" className="text-primary fw-bold text-decoration-none">
                       Create an account
                     </Link>
