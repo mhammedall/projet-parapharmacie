@@ -11,6 +11,7 @@ function Catalogue() {
   const [priceRange, setPriceRange] = useState([0, 200]);
   const [sortOrder, setSortOrder] = useState("");
 
+<<<<<<< HEAD
   // Main categories in English
   const mainCategories = [
     "All", "FACE", "BODY", "HAIR", "BABY & MOM", 
@@ -48,16 +49,68 @@ function Catalogue() {
     "FOOD SUPPLEMENTS": [
       "Vitamins",
       "Omega & Fatty Acids",
+=======
+  // Main categories (English version)
+  const mainCategories = [
+    "All", "FACE", "BODY", "HAIR", "BABY & MOM",
+    "DIETARY SUPPLEMENTS", "HYGIENE", "MEN",
+    "SUN CARE", "MAKEUP", "PROMO"
+  ];
+
+  // Subcategories (English version)
+  const subcategories = {
+    "FACE": [
+      "Moisturizing & nourishing care",
+      "Anti-aging & anti-wrinkle care",
+      "Makeup",
+      "Cleansers & face wash",
+      "Oily, mixed & acne-prone care",
+      "Face masks & scrubs",
+      "Redness & sensitive skin care"
+    ],
+
+    "BODY": [
+      "Body hydration & nutrition",
+      "Foot care",
+      "Hair removal",
+      "Slimming care",
+      "Body treatments",
+      "Joint support"
+    ],
+
+    "BABY & MOM": [
+      "Nursery & baby care",
+      "Baby bathing & hygiene",
+      "Baby diapering",
+      "Baby gift sets",
+      "Children dietary supplements",
+      "Lice treatment"
+    ],
+
+    "DIETARY SUPPLEMENTS": [
+      "Vitamins",
+      "Omega & fatty acids",
+>>>>>>> yasmine
       "Proteins",
       "Minerals",
       "Antioxidants"
     ],
+<<<<<<< HEAD
     "HYGIENE": [
       "Hand Sanitizers",
       "Soaps & Disinfectants",
       "Intimate Hygiene",
       "Hand Care"
+=======
+
+    "HYGIENE": [
+      "Hand sanitizers",
+      "Soaps & disinfectants",
+      "Intimate hygiene",
+      "Hand care"
+>>>>>>> yasmine
     ],
+
     "All": ["All"]
   };
 
@@ -67,18 +120,23 @@ function Catalogue() {
     setFilteredProducts(productsData);
   }, []);
 
-  // Apply filters and search
+  // Apply filters and search logic
   useEffect(() => {
     let results = products.filter(product => {
-      const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           product.description.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
-      const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1];
-      
+      const matchesSearch =
+        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchTerm.toLowerCase());
+
+      const matchesCategory =
+        selectedCategory === "All" || product.category === selectedCategory;
+
+      const matchesPrice =
+        product.price >= priceRange[0] && product.price <= priceRange[1];
+
       return matchesSearch && matchesCategory && matchesPrice;
     });
 
-    // Apply sorting
+    // Sorting logic
     if (sortOrder === "price-asc") {
       results.sort((a, b) => a.price - b.price);
     } else if (sortOrder === "price-desc") {
@@ -90,6 +148,10 @@ function Catalogue() {
 
   return (
     <div className="container-fluid py-4">
+<<<<<<< HEAD
+=======
+
+>>>>>>> yasmine
       {/* HORIZONTAL CATEGORY NAVIGATION */}
       <section className="mb-4 border-bottom">
         <div className="d-flex flex-wrap justify-content-center py-2">
@@ -97,7 +159,9 @@ function Catalogue() {
             <button
               key={index}
               className={`btn btn-link text-decoration-none fw-semibold mx-2 px-3 py-2 ${
-                selectedCategory === category ? "text-primary border-bottom border-primary" : "text-dark"
+                selectedCategory === category
+                  ? "text-primary border-bottom border-primary"
+                  : "text-dark"
               }`}
               onClick={() => setSelectedCategory(category)}
             >
@@ -108,35 +172,48 @@ function Catalogue() {
       </section>
 
       <div className="row">
+<<<<<<< HEAD
         {/* SIDEBAR WITH SUBCATEGORIES */}
+=======
+
+        {/* LEFT SIDEBAR */}
+>>>>>>> yasmine
         <div className="col-md-3 mb-4">
           <div className="card shadow-sm border-0">
             <div className="card-header bg-primary text-white fw-bold">
               {selectedCategory === "All" ? "CATEGORIES" : selectedCategory}
             </div>
+
             <div className="card-body p-0">
               {/* Subcategories List */}
               <ul className="list-group list-group-flush">
-                {(subcategories[selectedCategory] || subcategories["All"]).map((subcat, index) => (
-                  <li 
-                    key={index}
-                    className={`list-group-item border-0 py-2 px-3 cursor-pointer ${
-                      selectedSubcategory === subcat ? "bg-light fw-bold" : ""
-                    }`}
-                    onClick={() => setSelectedSubcategory(subcat)}
-                    style={{cursor: "pointer"}}
-                  >
-                    {subcat}
-                  </li>
-                ))}
+                {(subcategories[selectedCategory] || subcategories["All"]).map(
+                  (subcat, index) => (
+                    <li
+                      key={index}
+                      className={`list-group-item border-0 py-2 px-3 cursor-pointer ${
+                        selectedSubcategory === subcat ? "bg-light fw-bold" : ""
+                      }`}
+                      onClick={() => setSelectedSubcategory(subcat)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {subcat}
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           </div>
 
+<<<<<<< HEAD
           {/* FILTERS CARD */}
+=======
+          {/* FILTER CARD */}
+>>>>>>> yasmine
           <div className="card shadow-sm border-0 mt-4">
             <div className="card-header bg-light fw-bold">FILTERS</div>
             <div className="card-body">
+
               {/* Search */}
               <div className="mb-3">
                 <label className="form-label fw-semibold small">Search</label>
@@ -158,19 +235,23 @@ function Catalogue() {
                     className="form-control form-control-sm"
                     placeholder="Min"
                     value={priceRange[0]}
-                    onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
+                    onChange={(e) =>
+                      setPriceRange([Number(e.target.value), priceRange[1]])
+                    }
                   />
                   <input
                     type="number"
                     className="form-control form-control-sm"
                     placeholder="Max"
                     value={priceRange[1]}
-                    onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
+                    onChange={(e) =>
+                      setPriceRange([priceRange[0], Number(e.target.value)])
+                    }
                   />
                 </div>
               </div>
 
-              {/* Sort Options */}
+              {/* Sorting */}
               <div className="mb-3">
                 <label className="form-label fw-semibold small">Sort by</label>
                 <select
@@ -196,22 +277,31 @@ function Catalogue() {
 
         {/* PRODUCTS GRID */}
         <div className="col-md-9">
+
           {/* Category Title */}
           <div className="d-flex justify-content-between align-items-center mb-4">
             <h2 className="text-primary fw-bold mb-0">
               {selectedCategory === "All" ? "ALL PRODUCTS" : selectedCategory}
             </h2>
+
             {selectedSubcategory !== "All" && (
-              <span className="badge bg-secondary fs-6">{selectedSubcategory}</span>
+              <span className="badge bg-secondary fs-6">
+                {selectedSubcategory}
+              </span>
             )}
           </div>
 
+          {/* No results */}
           {filteredProducts.length === 0 ? (
             <div className="text-center py-5">
               <div className="card shadow-sm bg-white p-5 border-0">
                 <h4 className="text-secondary mb-3">No products found</h4>
                 <p className="text-muted">
+<<<<<<< HEAD
                   Adjust your search criteria or filters to find what you're looking for.
+=======
+                  Adjust your search terms or filters to find what you’re looking for.
+>>>>>>> yasmine
                 </p>
               </div>
             </div>
